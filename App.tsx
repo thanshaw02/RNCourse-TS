@@ -1,39 +1,45 @@
 import { FC, useState } from "react";
-import { StatusBar } from "expo-status-bar";
+// import { StatusBar } from "expo-status-bar";
 import {
-  StyleSheet, 
-  Text, 
-  TextInput, 
-  View 
+  Button,
+  Text,
+  TextInput,
+  View
 } from "react-native";
 
-const App: FC<unknown> = () => {
-  const [inputVal, setInputVal] = useState<string>("");
+import {
+  countStyles,
+  globalStyles,
+  normalMessageStyles,
+  secretMessageStyles,
+  viewStyles,
+} from "./Styles";
 
-  const handleInputChange = (inputText: string) => {
-    setInputVal(inputText);
+const App: FC<unknown> = () => {
+  const [buttonPressed, setButtonPressed] = useState<boolean>(false);
+  const [numberOfPresses, setNumberOfPresses] = useState<number>(0);
+
+  const handleButtonPress = () => {
+    setButtonPressed((oldVal) => !oldVal);
+    setNumberOfPresses((previousCount) => previousCount += 1);
   };
 
   return (
-    <View style={styles.container}>
-      <Text>{(inputVal) ? inputVal : "Type something :)"}</Text>
-      <TextInput
-        value={inputVal} 
-        onChangeText={handleInputChange}
-        placeholder="Nothing to see here..."
-      />
-      <StatusBar style="auto" />
+    // <View /> components act in a similar way to <div />'s where they are containers for some UI
+    <View style={viewStyles}>
+      <Text style={countStyles}>
+        Number of presses: {(numberOfPresses === 0) ? "No presses yet..." : numberOfPresses}
+      </Text>
+
+      {buttonPressed ? (
+        <Text style={secretMessageStyles}>Super secret message!</Text>
+      ) : (
+        <Text style={normalMessageStyles}>Hello World!</Text>
+      )}
+
+      <Button title="Click me!" onPress={handleButtonPress} />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
 
 export default App;
