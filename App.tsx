@@ -1,11 +1,27 @@
+import { FC, useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { FC } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import {
+  StyleSheet, 
+  Text, 
+  TextInput, 
+  View 
+} from "react-native";
 
 const App: FC<unknown> = () => {
+  const [inputVal, setInputVal] = useState<string>("");
+
+  const handleInputChange = (inputText: string) => {
+    setInputVal(inputText);
+  };
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <Text>{(inputVal) ? inputVal : "Type something :)"}</Text>
+      <TextInput
+        value={inputVal} 
+        onChangeText={handleInputChange}
+        placeholder="Nothing to see here..."
+      />
       <StatusBar style="auto" />
     </View>
   );
