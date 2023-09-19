@@ -14,6 +14,7 @@ const globalStyles = StyleSheet.create({
   // },
 });
 
+/* Styles for specific core components (not global) */
 const viewStyles: ViewStyle = {
   flex: 1,
   backgroundColor: "#fff",
@@ -21,7 +22,6 @@ const viewStyles: ViewStyle = {
   justifyContent: "center",
 };
 
-/* Styles for specific core components (not global) */
 const countStyles: TextStyles = {
   marginBottom: 30,
 };
