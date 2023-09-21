@@ -9,58 +9,37 @@ import {
 /* StyleProp type aliases */
 export type TextStyles = StyleProp<TextStyle>;
 export type ViewStyles = StyleProp<ViewStyle>;
+export type ImageStyles = StyleProp<ImageStyle>;
 
+/* Aliased type for the AppStyles object below */
 type AppStylesType = {
-  container: ViewStyles;
-  countStyles: TextStyles;
-  normalMessageStyles: TextStyles;
-  secretMessageStyles: TextStyles;
+  appContainer: ViewStyles;
+
 };
 
 /* Styles for specific core components (not global) */
 const AppStyles: AppStylesType = {
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  countStyles: {
-    marginBottom: 30,
-    paddingBottom: 10,
-    borderWidth: 2,
-    borderColor: "red",
-  },
-  normalMessageStyles: {
-    marginBottom: 15,
-  },
-  secretMessageStyles: {
-    marginBottom: 15,
-    color: "orange",
-  },
+  appContainer: {
+    padding: 50,
+  }
 };
 
 /* Looks like this may be the prefered way to set styles, but I like the typed version above better */
-const AppStylesStyleSheet = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+const styles = StyleSheet.create({
+  appContainer: {
+    padding: 50,
   },
-  countStyles: {
-    marginBottom: 30,
-    paddingBottom: 10,
-    borderWidth: 2,
-    borderColor: "red",
+  inputContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
-  normalMessageStyles: {
-    marginBottom: 15,
-  },
-  secretMessageStyles: {
-    marginBottom: 15,
-    color: "orange",
+  textInput: {
+    borderWidth: 1,
+    borderColor: "#cccccc",
+    width: "80%",
+    marginRight: 8,
+    padding: 8,
   },
 });
 
-export { AppStylesType, AppStyles };
+export { AppStylesType, AppStyles, styles };
