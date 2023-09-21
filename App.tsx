@@ -1,11 +1,6 @@
 import { FC, useState } from "react";
 // import { StatusBar } from "expo-status-bar";
-import {
-  Button,
-  Text,
-  TextInput,
-  View
-} from "react-native";
+import { Button, Text, TextInput, View } from "react-native";
 
 import {
   countStyles,
@@ -21,15 +16,13 @@ const App: FC<unknown> = () => {
 
   const handleButtonPress = () => {
     setButtonPressed((oldVal) => !oldVal);
-    setNumberOfPresses((previousCount) => previousCount += 1);
+    setNumberOfPresses((previousCount) => (previousCount += 1));
   };
 
   return (
     // <View /> components act in a similar way to <div />'s where they are containers for some UI
     <View style={viewStyles}>
-      <Text style={countStyles}>
-        Number of presses: {(numberOfPresses === 0) ? "No presses yet..." : numberOfPresses}
-      </Text>
+      <Text style={countStyles}>Number of presses: {numberOfPresses}</Text>
 
       {buttonPressed ? (
         <Text style={secretMessageStyles}>Super secret message!</Text>

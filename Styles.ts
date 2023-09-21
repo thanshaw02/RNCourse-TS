@@ -27,12 +27,12 @@ const countStyles: TextStyles = {
 };
 
 const normalMessageStyles: TextStyles = {
-  marginBottom: 15
+  marginBottom: 15,
 };
 
 const secretMessageStyles: TextStyles = {
   marginBottom: 15,
-  color: "orange"
+  color: "orange",
 };
 
 export {
