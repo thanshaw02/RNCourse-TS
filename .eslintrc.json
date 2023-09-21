@@ -12,5 +12,5 @@
   "rules": {
     "@typescript-eslint/no-unused-vars": "warn"
   },
-  "ignorePatterns": ["src/**/*.test.ts", "src/frontend/generated/*"]
+  "ignorePatterns": ["babel.*"]
 }
